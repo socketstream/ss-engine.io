@@ -8,7 +8,7 @@
     "type": "git",
     "url": "git://github.com/Anephenix/ss-engine.io.git"
   },
-  "main": "index.js",
+  "main": "lib/index.js",
   "dependencies": {
     "engine.io":"= 0.2.2"
   },
@@ -20,3 +20,4 @@
     "node": "~ 0.8.*"
   }
 }
+c
