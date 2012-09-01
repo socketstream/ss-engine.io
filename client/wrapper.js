@@ -3,6 +3,7 @@
 module.exports = function(serverStatus, message, config){
 
   var config = config || {};
+  var reconnectSwitch = false;
 
   return {
     connect: function(){
@@ -32,7 +33,11 @@ module.exports = function(serverStatus, message, config){
 
             // X = a system message
             case 'X':
-              serverStatus.emit('ready');
+              if (reconnectSwitch === false) {
+                serverStatus.emit('ready');
+              } else {
+                serverStatus.emit('reconnect');
+              }
               break;
 
             // 0 = incoming events
