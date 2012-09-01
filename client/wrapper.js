@@ -1,9 +1,10 @@
 // Engine.io client-side Wrapper
+var reconnectSwitch = false;
+var reconnectionTimeout = 1000;
 
 module.exports = function(serverStatus, message, config){
 
   var config = config || {};
-  var reconnectSwitch = false;
 
   return {
     connect: function(){
@@ -36,6 +37,7 @@ module.exports = function(serverStatus, message, config){
               if (reconnectSwitch === false) {
                 serverStatus.emit('ready');
               } else {
+                reconnectionTimeout = 1000;
                 serverStatus.emit('reconnect');
               }
               break;
@@ -66,9 +68,21 @@ module.exports = function(serverStatus, message, config){
         }
 
       };
-     
+
+      var attemptReconnect = function(time){
+        setTimeout(function(){
+          ss.assignTransport();
+          if (ss.server.event != "reconnect") {
+            reconnectionTimeout *= 1.5;
+          }
+        }, time);
+        clearTimeout();
+      };
+
       sock.onclose = function() {
+        reconnectSwitch = true;
         serverStatus.emit('disconnect');
+        attemptReconnect(reconnectionTimeout);
       };
 
       // Return a function which is used to send all messages to the server
