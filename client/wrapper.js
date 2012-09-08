@@ -4,11 +4,10 @@ var reconnectionTimeout = 1000;
 
 module.exports = function(serverStatus, message, config){
 
-  var config = config || {};
+  var config = config || { host: 'localhost', port: 3000 }; 
 
   return {
     connect: function(){
-
       var sock = new eio.Socket(config);
 
       sock.onopen = function() {
@@ -71,7 +70,7 @@ module.exports = function(serverStatus, message, config){
 
       var attemptReconnect = function(time){
         setTimeout(function(){
-          ss.assignTransport();
+          ss.assignTransport(config);
           if (ss.server.event != "reconnect") {
             reconnectionTimeout *= 1.5;
           }
