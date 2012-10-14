@@ -1,6 +1,13 @@
 History
 ===
 
+0.0.3
+---
+
+- Integrated a fix asked for in [this issue](https://github.com/socketstream/socketstream/issues/309)
+- Updated [engine.io](https://github.com/LearnBoost/engine.io) to 0.3.3
+
+
 0.0.2
 ---
 
@@ -12,6 +19,7 @@ History
 ---
 
 - Fixed a mistying in the package.json file
+
 
 0.0.0 
 ---
