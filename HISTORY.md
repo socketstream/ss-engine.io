@@ -1,6 +1,12 @@
 History
 ===
 
+0.0.4
+---
+
+- Fixed a bug where the config was not being set to a default
+- Changed the default to bind to the application's browser address
+
 0.0.3
 ---
 
