@@ -2,7 +2,7 @@
   "author": "Anephenix <paul@anephenix.com> (http://anephenix.com)",
   "name": "ss-engine.io",
   "description": "Engine.io websocket transport layer for SocketStream",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "homepage": "https://github.com/Anephenix/ss-engine.io",
   "repository": {
     "type": "git",
@@ -10,7 +10,7 @@
   },
   "main": "lib/index.js",
   "dependencies": {
-    "engine.io":"= 0.3.3"
+    "engine.io":"= 0.3.9"
   },
   "devDependencies": {
     "mocha":"latest"

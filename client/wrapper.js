@@ -4,7 +4,9 @@ var reconnectionTimeout = 1000;
 
 module.exports = function(serverStatus, message, config){
 
-  var config = config || { host: 'localhost', port: 3000 }; 
+  if (Object.keys(config).length === 0) {
+   config = { protocol: document.location.protocol, host: document.location.hostname, port: document.location.port };
+  }
 
   return {
     connect: function(){
