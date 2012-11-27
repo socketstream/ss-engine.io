@@ -24,6 +24,8 @@ Debugging
 
 Engine.IO uses the VisionMedia [debug module](https://github.com/visionmedia/debug). To debug connection issues, set the `DEBUG` environment variable to `engine*`, or, in your app, set `process.env.DEBUG` accordingly, before requiring `ss-engine.io`.
 
+Your browser must support `localStorage` for the debug mode to work. That means IE8+, and recent-ish Firefox, Chrome, Safari and Opera. Note that on the client side, the debug mode will mutate the `localStorage.debug` slot. It treats the `debug` value as a CSV list, and add or removes `engine*` entries according to the current mode. This should be benign in most cases.
+
 Tests
 ---
 
