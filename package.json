@@ -1,8 +1,11 @@
 {
   "author": "Anephenix <paul@anephenix.com> (http://anephenix.com)",
+  "contributors":[
+    "mdedetrich"
+  ],
   "name": "ss-engine.io",
   "description": "Engine.io websocket transport layer for SocketStream",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "homepage": "https://github.com/Anephenix/ss-engine.io",
   "repository": {
     "type": "git",
