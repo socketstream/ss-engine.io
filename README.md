@@ -19,6 +19,11 @@ By default, the library assumes that you are running your SocketStream app on po
 
     ss.ws.transport.use(require('ss-engine.io'), {client:{host:'localhost', port:1337}});
 
+Debugging
+---
+
+Engine.IO uses the VisionMedia [debug module](https://github.com/visionmedia/debug). To debug connection issues, set the `DEBUG` environment variable to `engine*`, or, in your app, set `process.env.DEBUG` accordingly, before requiring `ss-engine.io`.
+
 Tests
 ---
 
