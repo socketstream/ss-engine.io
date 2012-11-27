@@ -15,7 +15,7 @@ In your SocketStream application's app file, insert the following line of code:
 
     ss.ws.transport.use(require('ss-engine.io'));
 
-By default, the library assumes that you are running your SocketStream app on port 3000. If you are running it on another port, you can configure it like this:
+By default, the engine.io client-side library will connect to the browser's host and port. If you wish to set this manually, you can do so here:
 
     ss.ws.transport.use(require('ss-engine.io'), {client:{host:'localhost', port:1337}});
 
