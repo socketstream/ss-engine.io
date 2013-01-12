@@ -1,6 +1,12 @@
 History
 ===
 
+0.1.1
+---
+
+- Major fix: When a socket reconnects to the server, all session channels are bound to the new socket
+- Apologies for not maintaining the changelog between here and 0.0.4. This will be backdated along with git tags for each version.
+
 0.0.4
 ---
 
