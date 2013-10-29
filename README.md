@@ -3,6 +3,10 @@ ss-engine.io
 
 Engine.io websocket transport layer for SocketStream
 
+
+---
+[![Code Climate](https://codeclimate.com/repos/526feae589af7e5b62003c6a/badges/6f90bb9baa3d88d9f552/gpa.png)](https://codeclimate.com/repos/526feae589af7e5b62003c6a/feed)
+
 Installation
 ---
 
