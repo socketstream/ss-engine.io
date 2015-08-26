@@ -3,6 +3,10 @@ ss-engine.io
 
 Engine.io websocket transport layer for SocketStream
 
+[![Codacy Badge](http://api.codacy.com:80/project/badge/bc995475b9284476bf27deb045f61158)](https://www.codacy.com/app/paulbjensen/ss-engine-io)
+[![Code Climate](https://codeclimate.com/github/socketstream/ss-engine.io/badges/gpa.svg)](https://codeclimate.com/github/socketstream/ss-engine.io)
+
+
 Installation
 ---
 
