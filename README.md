@@ -5,7 +5,8 @@ Engine.io websocket transport layer for SocketStream
 
 [![Codacy Badge](http://api.codacy.com:80/project/badge/bc995475b9284476bf27deb045f61158)](https://www.codacy.com/app/paulbjensen/ss-engine-io)
 [![Code Climate](https://codeclimate.com/github/socketstream/ss-engine.io/badges/gpa.svg)](https://codeclimate.com/github/socketstream/ss-engine.io)
-
+[![Dependency Status](https://david-dm.org/socketstream/ss-engine.io.svg)](https://david-dm.org/socketstream/ss-engine.io)
+[![devDependency Status](https://david-dm.org/socketstream/ss-engine.io/dev-status.svg)](https://david-dm.org/socketstream/ss-engine.io#info=devDependencies)
 
 Installation
 ---
