@@ -1,20 +1,20 @@
 {
-  "author": "Anephenix <paul@anephenix.com> (http://anephenix.com)",
+  "author": "Paul Jensen <paul@anephenix.com> (https://anephenix.com)",
   "contributors":[
     "mdedetrich",
     "pygy"
   ],
   "name": "ss-engine.io",
   "description": "Engine.io websocket transport layer for SocketStream",
-  "version": "0.1.1",
-  "homepage": "https://github.com/Anephenix/ss-engine.io",
+  "version": "0.2.0",
+  "homepage": "https://github.com/socketstream/ss-engine.io",
   "repository": {
     "type": "git",
-    "url": "git://github.com/Anephenix/ss-engine.io.git"
+    "url": "git://github.com/socketstream/ss-engine.io.git"
   },
   "main": "lib/index.js",
   "dependencies": {
-    "engine.io":"= 0.3.10"
+    "engine.io":"= 1.5.1"
   },
   "devDependencies": {
     "mocha":"latest"
@@ -22,5 +22,6 @@
   "optionalDependencies": {},
   "engines": {
     "node": "*"
-  }
+  },
+  "license":"MIT"
 }

@@ -1,14 +1,17 @@
+'use strict';
+
 // Engine.io client-side Wrapper
 var reconnectSwitch = false;
 var reconnectionTimeout = 1000;
+var ss = require('socketstream');
 
 module.exports = function(serverStatus, message, config){
 
   if (JSON.stringify(config) === '{}') {
     config = { 
-        secure  : document.location.protocol === "https:"
-      , host    : document.location.hostname
-      , port    : document.location.protocol === "https:" ? 443 : document.location.port
+        secure  : document.location.protocol === 'https:',
+        host    : document.location.hostname,
+        port    : document.location.protocol === 'https:' ? 443 : document.location.port
     };
   }
 
@@ -16,18 +19,18 @@ module.exports = function(serverStatus, message, config){
     connect: function(){
       var sock = new eio.Socket(config);
 
-      sock.onopen = function() {
+      sock.on('open', function() {
         var sessionId = getCookie('connect.sid');
         if (sessionId) {
           sock.send('X|' + sessionId);
         } else{
           console.error('Unable to obtain session ID');
         }
-      };
+      });
      
-      sock.onmessage = function(e) {
+      sock.on('message', function (e) {
 
-        var i, x, msg = e.data;
+        var i, x, msg = e;
 
         // Attempt to get the responderId from each message
         if ( (i = msg.indexOf('|')) > 0) {
@@ -72,31 +75,29 @@ module.exports = function(serverStatus, message, config){
           console.error('Invalid websocket message received:', msg);
         }
 
-      };
+      });
 
       var attemptReconnect = function(time){
         setTimeout(function(){
           ss.assignTransport(config);
-          if (ss.server.event != "reconnect") {
+          if (ss.server.event !== 'reconnect') {
             reconnectionTimeout *= 1.5;
           }
         }, time);
         clearTimeout();
       };
 
-      sock.onclose = function() {
+      sock.on('close', function() {
         reconnectSwitch = true;
         serverStatus.emit('disconnect');
         attemptReconnect(reconnectionTimeout);
-      };
+      });
 
       // Return a function which is used to send all messages to the server
-      return function(msg){
-        sock.send(msg)
-      };
+      return sock.send; // (receives msg object)
     }
-  }
-}
+  };
+};
 
 
 // Private
@@ -104,13 +105,13 @@ module.exports = function(serverStatus, message, config){
 var getCookie = function(c_name) {
   var c_end, c_start;
   if (document.cookie.length > 0) {
-    c_start = document.cookie.indexOf(c_name + "=");
+    c_start = document.cookie.indexOf(c_name + '=');
     if (c_start !== -1) {
       c_start = c_start + c_name.length + 1;
-      c_end = document.cookie.indexOf(";", c_start);
+      c_end = document.cookie.indexOf(';', c_start);
       if (c_end === -1) c_end = document.cookie.length;
       return unescape(document.cookie.substring(c_start, c_end));
     }
   }
   return '';
-}
+};

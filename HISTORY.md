@@ -1,6 +1,11 @@
 History
 ===
 
+0.2.0 (6th July 2015)
+---
+
+- Major update - upgraded Engine.io to 1.5.1	
+
 0.1.1
 ---
 
@@ -30,7 +35,7 @@ History
 0.0.1 
 ---
 
-- Fixed a mistying in the package.json file
+- Fixed a mistyling in the package.json file
 
 
 0.0.0 
